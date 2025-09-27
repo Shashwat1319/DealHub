@@ -2,30 +2,23 @@ import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
-import { useEffect, useState } from "react";
+
+interface Product {
+  id: number;
+  title: string;
+  price: string;
+  image: string;
+  amazonUrl: string;
+  offer: string;
+  category: string;
+}
 
 interface ProductsPageProps {
   onNavigate: (page: string) => void;
+  products: Product[];
 }
 
-export function ProductsPage({ onNavigate }: ProductsPageProps) {
-    const [allproducts, setallproducts] = useState<any[]>([]);
-      const [loading, setLoading] = useState(true);
-    
-      useEffect(() => {
-        fetch("https://dealhub.onrender.com/api/products")
-          .then(res => res.json())
-          .then(data => {
-            setallproducts(data);
-            setLoading(false);
-          })
-          .catch(err => {
-            console.error(err);
-            setLoading(false);
-          });
-      }, []);
-    
-      if (loading) return <p className="text-center mt-20">Loading...</p>;
+export function ProductsPage({ onNavigate, products }: ProductsPageProps) {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -92,7 +85,7 @@ export function ProductsPage({ onNavigate }: ProductsPageProps) {
       <section className="py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-            {allproducts.map((product) => (
+            {products.map((product) => (
               <Card key={product.id} className="group hover:shadow-lg transition-shadow duration-300 border border-gray-200">
                 <CardContent className="p-0 relative">
                   <div className="aspect-square overflow-hidden rounded-t-lg">
@@ -136,7 +129,7 @@ export function ProductsPage({ onNavigate }: ProductsPageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-gray-600 text-center md:text-left">
-              © 2025 DealHub. 
+              © 2025 DealHub. As an Amazon Associate I earn from qualifying purchases.
             </p>
             <div className="flex items-center gap-6">
               <a href="#" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
