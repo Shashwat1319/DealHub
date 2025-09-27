@@ -2,10 +2,9 @@ import { useState, useRef } from "react";
 import { Button } from "./ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "./ui/card";
 import { Input } from "./ui/input";
-import { Textarea } from "./ui/textarea";
+// import { Textarea } from "./ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { Badge } from "./ui/badge";
-import { ImageWithFallback } from "./figma/ImageWithFallback";
 import { Save, Eye, ArrowLeft, Plus, Upload, X, Image as ImageIcon } from "lucide-react";
 
 interface Product {
@@ -49,7 +48,7 @@ const offerTypes = [
   "New Launch"
 ];
 
-export function AddProductPage({ onNavigate, products, setProducts }: AddProductPageProps) {
+export function AddProductPage({ onNavigate, setProducts }: AddProductPageProps) {
   const [formData, setFormData] = useState<Omit<Product, 'id'>>({
     title: "",
     price: "",
