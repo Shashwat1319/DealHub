@@ -9,7 +9,7 @@ const allProducts = [
     title: "Wireless Bluetooth Headphones",
     price: "₹2,999",
     image: "/Screenshot 2025-09-18 141734.png",
-    amazonUrl: "#",
+    amazonUrl: "https://amzn.to/3UZ2OiO",
     offer: "20% OFF"
   },
   {
