@@ -3,24 +3,62 @@ import { Card, CardContent } from "./ui/card";
 import { Badge } from "./ui/badge";
 import { ImageWithFallback } from "./figma/ImageWithFallback";
 
-interface Product {
-  id: number;
-  title: string;
-  price: string;
-  image: string;
-  amazonUrl: string;
-  offer: string;
-  category: string;
-}
+const featuredProducts = [
+  {
+    id: 1,
+    title: "Wireless Bluetooth Headphones",
+    price: "₹2,999",
+    image: "https://images.unsplash.com/photo-1606400082777-ef05f3c5cde2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHx3aXJlbGVzcyUyMGhlYWRwaG9uZXMlMjBibGFja3xlbnwxfHx8fDE3NTg4NDE0MDV8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    amazonUrl: "#",
+    offer: "20% OFF"
+  },
+  {
+    id: 2,
+    title: "Premium Smartphone Case",
+    price: "₹1,299",
+    image: "https://images.unsplash.com/photo-1675953935267-e039f13ddd79?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzbWFydHBob25lJTIwbW9iaWxlJTIwcGhvbmV8ZW58MXx8fHwxNzU4ODI0MzM3fDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    amazonUrl: "#",
+    offer: "Deal of the Day"
+  },
+  {
+    id: 3,
+    title: "Gaming Laptop Ultra Thin",
+    price: "₹65,999",
+    image: "https://images.unsplash.com/photo-1754928864131-21917af96dfd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxsYXB0b3AlMjBjb21wdXRlciUyMG1vZGVybnxlbnwxfHx8fDE3NTg3NzQ0MjJ8MA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    amazonUrl: "#",
+    offer: "Limited Stock"
+  },
+  {
+    id: 4,
+    title: "Smart Fitness Tracker Watch",
+    price: "₹4,599",
+    image: "https://images.unsplash.com/photo-1665860455418-017fa50d29bc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaXRuZXNzJTIwdHJhY2tlciUyMHdhdGNofGVufDF8fHx8MTc1ODgwMTc2MHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    amazonUrl: "#",
+    offer: "15% OFF"
+  },
+  {
+    id: 5,
+    title: "Portable Bluetooth Speaker",
+    price: "₹3,199",
+    image: "https://images.unsplash.com/photo-1674303324806-7018a739ed11?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxibHVldG9vdGglMjBzcGVha2VyJTIwcG9ydGFibGV8ZW58MXx8fHwxNzU4ODUwNDkzfDA&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    amazonUrl: "#",
+    offer: "Deal of the Day"
+  },
+  {
+    id: 6,
+    title: "Gaming Mouse & Keyboard Set",
+    price: "₹8,999",
+    image: "https://images.unsplash.com/photo-1629429408719-a64b3ae484e5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxnYW1pbmclMjBtb3VzZSUyMGtleWJvYXJkfGVufDF8fHx8MTc1ODg2OTY3NHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
+    amazonUrl: "#",
+    offer: "25% OFF"
+  }
+];
 
 interface HomePageProps {
   onNavigate: (page: string) => void;
-  products: Product[];
 }
 
-export function HomePage({ onNavigate, products }: HomePageProps) {
-  // Show first 6 products as featured
-  const featuredProducts = products.slice(0, 6);
+export function HomePage({ onNavigate }: HomePageProps) {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
@@ -48,12 +86,6 @@ export function HomePage({ onNavigate, products }: HomePageProps) {
                   className="text-gray-600 hover:text-gray-900 transition-colors"
                 >
                   Products
-                </button>
-                <button 
-                  onClick={() => onNavigate('add-product')}
-                  className="text-gray-600 hover:text-gray-900 transition-colors bg-blue-50 px-3 py-1 rounded-md border border-blue-200"
-                >
-                  Add Product
                 </button>
                 <button 
                   onClick={() => onNavigate('contact')}

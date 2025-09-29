@@ -2,31 +2,11 @@ import { Button } from "./ui/button";
 import { Card, CardContent } from "./ui/card";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
-import { FaInstagram, FaFacebook } from "react-icons/fa";
 import { Mail, Phone, MapPin } from "lucide-react";
 
 interface ContactPageProps {
   onNavigate: (page: string) => void;
 }
-
-const socialAccounts = [
-  {
-    name: "Instagram",
-    handle: "@dealhub_official",
-    followers: "25.2K",
-    icon: FaInstagram,
-    color: "bg-gradient-to-br from-purple-600 via-pink-600 to-orange-500",
-    url: "https://instagram.com/dealhub_official"
-  },
-  {
-    name: "Facebook",
-    handle: "DealHub Official",
-    followers: "32.1K",
-    icon: FaFacebook,
-    color: "bg-blue-600",
-    url: "https://facebook.com/dealhub"
-  },
-];
 
 export function ContactPage({ onNavigate }: ContactPageProps) {
   return (
@@ -85,7 +65,7 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
               Get in Touch
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-8">
-              Connect with us on social media or send us a message. We'd love to hear from you!
+              Have questions about our deals or need help finding the perfect product? We're here to help!
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <div className="flex items-center gap-2 text-gray-600">
@@ -97,54 +77,6 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
                 <span>+91 98765 43210</span>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Social Media Grid */}
-      <section className="py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Follow Us
-            </h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Stay updated with the latest deals and product reviews across all our social platforms
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {socialAccounts.map((account) => {
-              const IconComponent = account.icon;
-              return (
-                <Card key={account.name} className="group hover:shadow-xl transition-all duration-300 border-0 shadow-lg overflow-hidden">
-                  <CardContent className="p-0">
-                    <div className="relative">
-                      <div className={`${account.color} h-24 flex items-center justify-center relative overflow-hidden`}>
-                        <div className="absolute inset-0 bg-black/10"></div>
-                        <IconComponent className="w-10 h-10 text-white relative z-10" />
-                        <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 transform translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
-                      </div>
-                      <div className="p-6">
-                        <div className="flex items-center justify-between mb-3">
-                          <h3 className="font-bold text-lg text-gray-900">{account.name}</h3>
-                          <span className="text-sm text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
-                            {account.followers}
-                          </span>
-                        </div>
-                        <p className="text-gray-600 mb-4">{account.handle}</p>
-                        <Button 
-                          className="w-full group-hover:scale-105 transition-transform duration-200"
-                          onClick={() => window.open(account.url, '_blank')}
-                        >
-                          Follow
-                        </Button>
-                      </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              );
-            })}
           </div>
         </div>
       </section>
@@ -207,7 +139,7 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
       {/* Quick Info Section */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 d-flex gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="text-center group">
               <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-blue-200 transition-colors">
                 <Mail className="w-8 h-8 text-blue-600" />
@@ -243,7 +175,7 @@ export function ContactPage({ onNavigate }: ContactPageProps) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-sm text-gray-600 text-center md:text-left">
-              © 2025 DealHub. 
+              © 2025 DealHub. As an Amazon Associate I earn from qualifying purchases.
             </p>
             <div className="flex items-center gap-6">
               <a href="#" className="text-sm text-gray-600 hover:text-gray-900 transition-colors">
